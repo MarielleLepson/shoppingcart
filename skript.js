@@ -28,6 +28,7 @@ lisaKorviNupud.forEach(lisaKorviNupp => {
             korv.push(toode);
             nupuOhjamine(lisaKorviNupp, toode); // selle funktsiooni loome allpool
             arvutaSumma();
+            arvutaTäisHind();
         }
     });
 });
@@ -71,6 +72,7 @@ function suurendaArtikkel(toode, korvArtikkelD) {
         if (korvArtikkel.nimi === toode.nimi) {
             korvArtikkelD.querySelector('.korv_artikkel_kogus').innerText = ++korvArtikkel.kogus;
             arvutaSumma();
+            arvutaTäisHind();
         }
     });
 }
@@ -89,6 +91,7 @@ function decreaseItem(toode, korvArtikkelD, lisaKorviNupp) {
             korvArtikkelD.querySelector('.korv_artikkel_kogus').innerText = kogus;
             arvutaSumma();
         }
+        arvutaTäisHind();
     })
 }
 
@@ -295,7 +298,7 @@ function arvutaTäisHind() {
     let täisHind = s + tarneHind;
 
     // Display the total cost
-    koguSummaElement.innerHTML = `Kogusumma: ${täisHind.toFixed(2)} € (sisaldab tarnet)`;
+    koguSummaElement.innerHTML = `Kogusumma: ${täisHind.toFixed(2)} €`;
 }
 
 tarneValikud.forEach(radio => {
