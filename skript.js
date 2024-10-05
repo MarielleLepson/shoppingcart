@@ -289,15 +289,10 @@ function arvutaTäisHind() {
     korv.forEach(korvArtikkel => {
         s += korvArtikkel.hind * korvArtikkel.kogus;
     });
-
-    // Get the selected delivery cost
+    
     const valitudTarne = document.querySelector('input[name="tarneviis"]:checked');
     let tarneHind = valitudTarne ? parseFloat(valitudTarne.value) : 0;
-
-    // Calculate the total cost
     let täisHind = s + tarneHind;
-
-    // Display the total cost
     koguSummaElement.innerHTML = `Kogusumma: ${täisHind.toFixed(2)} €`;
 }
 
